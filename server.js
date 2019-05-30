@@ -26,8 +26,12 @@ app.get('/', (req, res) => {
           articles: result,
       })
   })
-  //res.render("home")
+
 });
+
+// app.get('/article/:id',(req,res)=>{
+    
+// })
 
 
 app.listen(PORT, HOST);

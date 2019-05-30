@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS news.article (
 id int(11) unsigned NOT NULL AUTO_INCREMENT,
 title varchar(150) NOT NULL,
 body text NOT NULL,
+image varchar(200),
 create_at date,
 updated_at date,
 PRIMARY KEY (id)
@@ -31,7 +32,46 @@ PRIMARY KEY (id)
 
 -- c++         https://hackr.io/blog/wp-content/uploads/2018/07/c-uses-and-applications@2x-1280x800.png
 
-alter table news.article add column image varchar(200);
+-- alter table news.article add column image varchar(200);
+
+
+
+insert into news.article (title,body,create_at,updated_at)
+values ('Javascript','Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, 
+when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+It has survived not only five centuries, but also the leap into electronic typesetting, 
+remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets 
+containing Lorem Ipsum passages, and more recently with desktop
+publishing software like Aldus PageMaker including versions of Lorem Ipsum',now(),now()),
+('Python','Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, 
+when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+It has survived not only five centuries, but also the leap into electronic typesetting, 
+remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets 
+containing Lorem Ipsum passages, and more recently with desktop
+publishing software like Aldus PageMaker including versions of Lorem Ipsum',now(),now()),
+('Java','Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, 
+when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+It has survived not only five centuries, but also the leap into electronic typesetting, 
+remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets 
+containing Lorem Ipsum passages, and more recently with desktop
+publishing software like Aldus PageMaker including versions of Lorem Ipsum',now(),now()),
+('HTML/CSS','Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, 
+when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+It has survived not only five centuries, but also the leap into electronic typesetting, 
+remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets 
+containing Lorem Ipsum passages, and more recently with desktop
+publishing software like Aldus PageMaker including versions of Lorem Ipsum',now(),now()),
+('C#/C++','Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, 
+when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+It has survived not only five centuries, but also the leap into electronic typesetting, 
+remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets 
+containing Lorem Ipsum passages, and more recently with desktop
+publishing software like Aldus PageMaker including versions of Lorem Ipsum',now(),now());
 
 update news.article set image = 'http://www.purelogics.net/blog/wp-content/uploads/2019/01/javascript.png'
 where title = 'Javascript';
@@ -44,40 +84,3 @@ where title = 'HTML/CSS';
 
 update news.article set image = 'https://hackr.io/blog/wp-content/uploads/2018/07/c-uses-and-applications@2x-1280x800.png'
 where title = 'C#/C++';
-
--- insert into news.article (title,body,create_at,updated_at)
--- values ('Javascript','Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
--- Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, 
--- when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
--- It has survived not only five centuries, but also the leap into electronic typesetting, 
--- remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets 
--- containing Lorem Ipsum passages, and more recently with desktop
--- publishing software like Aldus PageMaker including versions of Lorem Ipsum',now(),now()),
--- ('Python','Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
--- Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, 
--- when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
--- It has survived not only five centuries, but also the leap into electronic typesetting, 
--- remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets 
--- containing Lorem Ipsum passages, and more recently with desktop
--- publishing software like Aldus PageMaker including versions of Lorem Ipsum',now(),now()),
--- ('Java','Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
--- Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, 
--- when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
--- It has survived not only five centuries, but also the leap into electronic typesetting, 
--- remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets 
--- containing Lorem Ipsum passages, and more recently with desktop
--- publishing software like Aldus PageMaker including versions of Lorem Ipsum',now(),now()),
--- ('HTML/CSS','Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
--- Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, 
--- when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
--- It has survived not only five centuries, but also the leap into electronic typesetting, 
--- remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets 
--- containing Lorem Ipsum passages, and more recently with desktop
--- publishing software like Aldus PageMaker including versions of Lorem Ipsum',now(),now()),
--- ('C#/C++','Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
--- Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, 
--- when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
--- It has survived not only five centuries, but also the leap into electronic typesetting, 
--- remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets 
--- containing Lorem Ipsum passages, and more recently with desktop
--- publishing software like Aldus PageMaker including versions of Lorem Ipsum',now(),now());
