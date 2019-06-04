@@ -1,6 +1,10 @@
 const express = require('express');
 const exphbs = require("express-handlebars");
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const os = require('os')
+
+const passport = require("passport");
+const LocalStrategy = require('passport-local').Strategy;
 
 const con = require("./db/connect")
 // Constants
@@ -16,6 +20,21 @@ app.set("view engine", "handlebars");
 app.use(express.static("public"));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// passport.use(new LocalStrategy(
+//   function(username, password, done) {
+//     User.findOne({ username: username }, function (err, user) {
+//       if (err) { return done(err); }
+//       if (!user) {
+//         return done(null, false, { message: 'Incorrect username.' });
+//       }
+//       if (!user.validPassword(password)) {
+//         return done(null, false, { message: 'Incorrect password.' });
+//       }
+//       return done(null, user);
+//     });
+//   }
+// ));
 // App
 
 app.get('/', (req, res) => {
@@ -26,10 +45,21 @@ app.get('/', (req, res) => {
       result.map(item=>item.body = item.body.substring(0,120)+'...')
       return res.render("home",{
           articles: result,
+          host : os.hostname()
       })
   })
+  //res.render("home")
 
 });
+
+app.get("/test", (req,res)=>{
+  res.render("home")
+})
+
+app.post("/login",passport.authenticate('local'),
+(req,res)=>{
+console.log('authuntificated ')
+})
 
 app.get('/article/:id',(req,res)=>{
 
@@ -66,5 +96,18 @@ app.post("/add-new-article",(req,res)=>{
 })
 
 
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+// app.listen(PORT, HOST);
+// console.log(`Running on http://${HOST}:${PORT}`);
+
+// const express = require("express");
+// const os = require("os");
+
+// const app=express();
+
+// app.get("/", (req, res) => {
+//     res.send("Hello from Swarm " + os.hostname());
+// });
+
+app.listen(3000, () => {
+    console.log("Server is running on port 3000");
+});

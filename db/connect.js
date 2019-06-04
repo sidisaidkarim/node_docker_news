@@ -3,7 +3,7 @@ const mysql = require('mysql');
 // Mysql configuration === 
 // =======================
 const con = mysql.createConnection({
-    host: "mysql_db",
+    host: "nodeapp_db",
     user: "root",
     password: "root",
     database: "news", 
