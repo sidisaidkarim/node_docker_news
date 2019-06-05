@@ -56,10 +56,10 @@ app.get("/test", (req,res)=>{
   res.render("home")
 })
 
-app.post("/login",passport.authenticate('local'),
-(req,res)=>{
-console.log('authuntificated ')
-})
+// app.post("/login",passport.authenticate('local'),
+// (req,res)=>{
+// console.log('authuntificated ')
+// })
 
 app.get('/article/:id',(req,res)=>{
 
