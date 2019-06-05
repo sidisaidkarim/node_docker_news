@@ -3,8 +3,8 @@ const exphbs = require("express-handlebars");
 const bodyParser = require('body-parser');
 const os = require('os')
 
-const passport = require("passport");
-const LocalStrategy = require('passport-local').Strategy;
+// const passport = require("passport");
+// const LocalStrategy = require('passport-local').Strategy;
 
 const con = require("./db/connect")
 // Constants
