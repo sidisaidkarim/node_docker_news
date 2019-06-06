@@ -6,7 +6,7 @@ const os = require('os')
 // const passport = require("passport");
 // const LocalStrategy = require('passport-local').Strategy;
 
-const con = require("./db/connect")
+//const con = require("./db/connect")
 // Constants
 const PORT = 3000;
 const HOST = '0.0.0.0';
@@ -39,61 +39,61 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
 
-  const q = `select * from article order by create_at limit 8`;
-  con.query(q,(err,result)=>{
-      if (err) throw err;
-      result.map(item=>item.body = item.body.substring(0,120)+'...')
-      return res.render("home",{
-          articles: result,
-          host : os.hostname()
-      })
-  })
-  //res.render("home")
+  // const q = `select * from article order by create_at limit 8`;
+  // con.query(q,(err,result)=>{
+  //     if (err) throw err;
+  //     result.map(item=>item.body = item.body.substring(0,120)+'...')
+  //     return res.render("home",{
+  //         articles: result,
+  //         host : os.hostname()
+  //     })
+  // })
+  res.render("home")
 
 });
 
-app.get("/test", (req,res)=>{
-  res.render("home")
-})
-
-// app.post("/login",passport.authenticate('local'),
-// (req,res)=>{
-// console.log('authuntificated ')
+// app.get("/test", (req,res)=>{
+//   res.render("home")
 // })
 
-app.get('/article/:id',(req,res)=>{
+// // app.post("/login",passport.authenticate('local'),
+// // (req,res)=>{
+// // console.log('authuntificated ')
+// // })
 
-  const articleId = req.params.id;
-  const q = `select * from article where id = ${articleId}`
-  con.query(q,(err,result)=>{
-      if (err) throw err;
+// app.get('/article/:id',(req,res)=>{
+
+//   const articleId = req.params.id;
+//   const q = `select * from article where id = ${articleId}`
+//   con.query(q,(err,result)=>{
+//       if (err) throw err;
        
-      return res.render("article-detail",{
-        article: result[0]
-      })
-  })
+//       return res.render("article-detail",{
+//         article: result[0]
+//       })
+//   })
     
-})
+// })
 
-app.get("/add-new-article",(req,res)=>{
-  res.render("add-new-article");
-})
+// app.get("/add-new-article",(req,res)=>{
+//   res.render("add-new-article");
+// })
 
-app.post("/add-new-article",(req,res)=>{
+// app.post("/add-new-article",(req,res)=>{
 
 
-  console.log(req.body.articleTitle)
-  const title = req.body.articleTitle;
-  const body = req.body.articleBody;
-  const link = req.body.articleImgLink;
+//   console.log(req.body.articleTitle)
+//   const title = req.body.articleTitle;
+//   const body = req.body.articleBody;
+//   const link = req.body.articleImgLink;
 
-  const q = `insert into article (title,body,image) value('${title}','${body}','${link}')`;
+//   const q = `insert into article (title,body,image) value('${title}','${body}','${link}')`;
 
-  con.query(q, (err,result)=>{
-    return res.render('home');
-  } )
+//   con.query(q, (err,result)=>{
+//     return res.render('home');
+//   } )
 
-})
+// })
 
 
 // app.listen(PORT, HOST);
