@@ -6,7 +6,7 @@ const con = mysql.createConnection({
     host: "nodeapp_db",
     user: "root",
     password: "root",
-    database: "news", 
+    database: "news"
 }); 
 con.connect(function(err) {
     //if (err) throw err ;

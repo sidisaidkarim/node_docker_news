@@ -4,8 +4,8 @@ services:
   web:
     # container_name: node_docker_web
     # image: node:8.13.0
-    image: node_web
-    build: .
+    image: oubrahemnissa/node-web:lataset
+    #build: .
     command: "bash -c 'echo Waiting 20 seconds for DB to init; sleep 20; npm start;'"
     restart: always
     ports: 
