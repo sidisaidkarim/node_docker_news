@@ -2,12 +2,16 @@ version: '3'
 
 services:
   web:
-    # container_name: node_docker_web
-    # image: node:8.13.0
     image: oubrahemnissa/node-web:lataset
-    #build: .
     command: "bash -c 'echo Waiting 20 seconds for DB to init; sleep 20; npm start;'"
-    restart: always
+    #restart: always
+    #condition: on-failure
+    # deploy:
+    #   replicas: 2
+    #   resources:
+    #     limits:
+    #       cpus: "0.2"
+    #       memory: 500M
     ports: 
       - 3000:3000
     volumes:
@@ -17,10 +21,8 @@ services:
       - db
 
   db:
-    # container_name: mysql_db
     image: mysql:5.7.24
     command: --init-file /app/init.sql
-    # command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -32,8 +34,3 @@ services:
     volumes:
       - ./db_data:/var/lib/mysql
       - .:/app
-#     networks:
-#       - mynet
-
-# networks:
-#   mynet:
